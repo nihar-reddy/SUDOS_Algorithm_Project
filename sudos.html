@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUDOS - Delivery Optimization System</title>
+    <link rel="stylesheet" href="sudos.css">
+</head>
+<body>
+    <div class="top-bar">
+        <h1>SUDOS – Smart Urban Delivery Optimization System</h1>
+    </div>
+    <div class="main-container">
+        <div class="sidebar">
+            
+            <div class="control-group">
+                <button id="add-node-btn" class="btn">Add Location (Hub)</button>
+                <button id="add-edge-btn" class="btn">Add Route (Road)</button>
+                <div class="split-group">
+                    <button id="set-source-btn" class="btn half">Set Warehouse (W)</button>
+                    <button id="set-sink-btn" class="btn half">Set Customer (C)</button>
+                </div>
+                <button id="clear-btn" class="btn danger">Clear City Map</button>
+            </div>
+            
+            <div class="control-group slider-group" style="padding-top: 10px;">
+                <label for="agent-slider" style="font-size: 0.95rem;">Number of Agents: <span id="agent-count">1</span></label>
+                <input type="range" id="agent-slider" min="1" max="5" value="1">
+            </div>
+            
+            <div class="control-group">
+                <label for="algo-select">Select Routing Algorithm</label>
+                <select id="algo-select" class="dropdown">
+                    <option value="dijkstra">Graph: Multi-Agent Dispatch (Dijkstra)</option>
+                    <option value="floyd-warshall">Graph: Floyd-Warshall (APSP)</option>
+                    <option value="greedy">Greedy: Nearest Neighbor</option>
+                    <option value="dp-tsp">Optimal DP: Multi-Agent TSP</option>
+                    <option value="heuristic-tsp">Approximation: Heuristic mTSP</option>
+                    <option value="ford-fulkerson">Advanced: Max Flow (Assignment)</option>
+                </select>
+            </div>
+
+            <div class="control-group playback-controls">
+                <button id="run-btn" class="btn primary">Run Delivery Auto</button>
+                <div class="split-group">
+                    <button id="pause-btn" class="btn half">Pause</button>
+                    <button id="next-btn" class="btn half">Next Step</button>
+                </div>
+                <div class="slider-group">
+                    <label for="speed-slider">Speed</label>
+                    <input type="range" id="speed-slider" min="50" max="2000" value="800" dir="rtl">
+                </div>
+            </div>
+
+            <div class="status-panel">
+                <p>System Status:</p>
+                <div id="status-text">Idle. Add locations to begin.</div>
+                <div id="final-result" class="result-highlight"></div>
+                
+                <hr style="border-color: #334155; margin: 15px 0;">
+                
+                <p style="font-size: 0.95rem;">Last Run Metrics:</p>
+                <div style="font-size: 0.9rem; color: #94a3b8; margin-top: 8px; line-height: 1.5;" id="metrics-panel">
+                    <strong>Time:</strong> <span id="metric-time">-- ms</span> <br>
+                    <strong>Cost:</strong> <span id="metric-cost">-- km</span> <br>
+                    <strong>Complexity:</strong> <span id="metric-complexity">--</span>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="canvas-container">
+            <canvas id="graphCanvas"></canvas>
+        </div>
+    </div>
+    
+    <script src="sudos.js"></script>
+</body>
+</html>

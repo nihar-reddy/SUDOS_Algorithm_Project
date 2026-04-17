@@ -1,0 +1,221 @@
+:root {
+    /* Updated to a "Logistics/Delivery" Theme */
+    --bg-dark: #0f172a;
+    --sidebar-bg: #1e293b;
+    --primary: #f97316;       /* Delivery Orange */
+    --primary-hover: #ea580c; /* Darker Orange for hover */
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #eab308;
+    --text-light: #f8fafc;
+    --text-muted: #94a3b8;
+    --border-color: #334155;
+    --btn-bg: #0f172a;
+    --btn-hover: #334155;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { 
+    background-color: var(--bg-dark); 
+    color: var(--text-light); 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+}
+
+.top-bar { 
+    background-color: var(--sidebar-bg); 
+    padding: 20px 25px; 
+    border-bottom: 1px solid var(--border-color); 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); 
+    z-index: 10; 
+    text-align: center; 
+}
+
+.top-bar h1 { 
+    font-size: 2.2rem; 
+    font-weight: 700; 
+    letter-spacing: 2px; 
+    color: var(--primary); 
+}
+
+.main-container { 
+    display: flex; 
+    flex: 1; 
+    height: calc(100vh - 83px); 
+}
+
+.sidebar { 
+    width: 340px; 
+    background-color: var(--sidebar-bg); 
+    padding: 25px 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 22px; 
+    border-right: 1px solid var(--border-color); 
+    overflow-y: auto; 
+}
+
+.control-group { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+}
+
+.split-group { 
+    display: flex; 
+    gap: 10px; 
+}
+
+label {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.btn { 
+    background-color: var(--btn-bg); 
+    color: var(--text-light); 
+    border: 1px solid var(--border-color); 
+    padding: 14px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    transition: all 0.2s ease; 
+    font-weight: 500; 
+    text-align: center; 
+    font-size: 1.05rem;
+}
+
+.btn.half { 
+    flex: 1; 
+    font-size: 0.95rem;
+    padding: 12px;
+}
+
+.btn:hover { 
+    background-color: var(--btn-hover); 
+}
+
+.btn.active { 
+    border-color: var(--primary); 
+    background-color: rgba(249, 115, 22, 0.15); 
+    box-shadow: 0 0 8px rgba(249, 115, 22, 0.4); 
+}
+
+.btn.primary { 
+    background-color: var(--primary); 
+    border: none; 
+    font-size: 1.25rem; 
+    padding: 16px; 
+    font-weight: 600;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+
+.btn.primary:hover { 
+    background-color: var(--primary-hover); 
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.4); 
+}
+
+.btn.danger { 
+    border-color: #7f1d1d; 
+    color: #fca5a5; 
+}
+
+.btn.danger:hover { 
+    background-color: rgba(239, 68, 68, 0.15); 
+    border-color: var(--danger);
+}
+
+.dropdown { 
+    width: 100%; 
+    padding: 14px; 
+    background-color: var(--btn-bg); 
+    color: var(--text-light); 
+    border: 1px solid var(--border-color); 
+    border-radius: 6px; 
+    outline: none; 
+    font-size: 1.05rem;
+    cursor: pointer;
+}
+
+.dropdown:focus {
+    border-color: var(--primary);
+}
+
+.slider-group { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 12px; 
+    padding-top: 8px; 
+}
+
+input[type=range] { 
+    flex: 1; 
+    cursor: pointer; 
+    accent-color: var(--primary);
+}
+
+.status-panel { 
+    background-color: var(--btn-bg); 
+    padding: 18px; 
+    border-radius: 6px; 
+    border: 1px solid var(--border-color); 
+    margin-top: auto; 
+}
+
+.status-panel p {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+#status-text { 
+    margin-top: 8px; 
+    font-size: 1.05rem; 
+    color: var(--success); 
+    font-weight: bold; 
+    min-height: 44px; 
+}
+
+.result-highlight { 
+    margin-top: 12px; 
+    font-size: 1.1rem; 
+    color: var(--primary); 
+    font-weight: bold; 
+}
+
+/* Updated: Added City Grid Pattern to Canvas Container */
+.canvas-container { 
+    flex: 1; 
+    position: relative; 
+    background-color: var(--bg-dark);
+    background-image: 
+        linear-gradient(rgba(51, 65, 85, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(51, 65, 85, 0.4) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+}
+
+canvas { 
+    display: block; 
+    width: 100%; 
+    height: 100%; 
+    cursor: crosshair; 
+}
+
+/* Added: Metrics Panel Highlighting */
+#metrics-panel span {
+    color: var(--text-light);
+    font-family: monospace;
+    font-size: 1rem;
+}
